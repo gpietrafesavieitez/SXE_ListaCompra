@@ -1,0 +1,14 @@
+<table style="width:100%">
+  <tr >
+    <td *ngFor="let product of products">
+      <div *ngIf="!product.status">
+        <button class="buttonOff" (click)="onSelect(product)">{{product.name}}</button>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td *ngFor="let product of products">
+      <div *ngIf="product.status"><button class="buttonOn" (click)="onSelect(product)">{{product.name}}</button></div>
+    </td>
+  </tr>
+</table>
