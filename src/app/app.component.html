@@ -1,1 +1,24 @@
+<div class="loginDiv" *ngIf="( authApp.user | async) as obs; else login">
+  <div>
+    <div>
+      <button class="btn btn-secondary" (click)="authApp.logout()"><i class="fas fa-sign-out-alt"></i>SALIR</button>
+      <button class="btn btn-success" (click)="dbApp.altausuario(obs.email, obs.uid)"><i class="fas fa-check"></i>ALTA</button>
+      <button class="btn btn-danger" (click)="dbApp.bajausuario(obs.uid)"><i class="far fa-trash-alt"></i>BAJA</button>
+    </div>
+    <div>
+      <div><b>Email:</b> {{obs.email}}</div>
+      <div><b>ID:</b> {{obs.uid}}</div>
+    </div>
+  </div>
+</div>
+<ng-template #login>
+  <div class="loginDiv">
+    <button class="btn btn-danger" (click)="authApp.glogin()">
+      <i class="fab fa-google"></i>
+      Google Login
+    </button>
+  </div>
+</ng-template>
+<br/>
+<h2>Lista de la compra</h2>
 <app-products></app-products>
